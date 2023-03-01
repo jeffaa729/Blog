@@ -5,7 +5,19 @@ export const getAllPost = (req,res) =>{
     const q = req.query.cat ? 
     "SELECT p.id, u.img as userImg , `username`, `title`, `descript` , p.img , `cat` , `date`,`likes`, `dislike`  FROM users u JOIN posts p ON u.id = p.uid WHERE `cat` = ?" 
     :
-    "SELECT p.id , u.img as userImg , `username`, `title`, `descript` , p.img , `cat` , `date`, `likes`, `dislike` FROM users u JOIN posts p ON u.id = p.uid" 
+    "SELECT p.id , u.img as userImg , `username`, `title`, `descript` , p.img , `cat` , `date`, `likes`, `dislike` FROM users u JOIN posts p ON u.id = p.uid ORDER BY `date` DESC LIMIT 10" 
+
+
+    db.query(q,[req.query.cat],(err,data)=>{
+        if(err){
+            return res.send(err)
+        }
+        return res.status(200).json(data)
+    })
+}
+
+export const getHotPost = (req,res) =>{
+    const q =  "SELECT p.id , u.img as userImg , `username`, `title`, `descript` , p.img , `cat` , `date`, `likes`, `dislike` FROM users u JOIN posts p ON u.id = p.uid ORDER BY `likes` DESC LIMIT 5" 
 
 
     db.query(q,[req.query.cat],(err,data)=>{

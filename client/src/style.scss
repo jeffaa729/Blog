@@ -127,7 +127,107 @@ $lightGreen : #b9e7e7;
                 height: 50px;
             }
         }
-
+        .hot{
+            .posts{
+                display: flex;
+                flex-direction: row;
+                margin-top: 50px;
+                gap: 20px;
+            }
+            .post{
+                display: flex;
+                flex-direction: column;
+                border-bottom: 3px solid gray;
+                padding-bottom : 20px;
+                width: 100%;
+                &:hover{
+                    p,h1{
+                        opacity: 80%;
+                        font-weight: bolder;
+                    }
+                }
+                .img{
+                    display: flex;
+                    flex-shrink: inherit;
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    border: #333 solid;
+                    background-size: 'cover';
+                    background-position: center;
+                    border-radius: 50px;
+                    button{
+                        height: 20px;
+                        width: 50px;
+                    }
+                    img{
+                        width: 100%;
+                        height: 400px;
+                        object-fit:contain;
+                        margin: 15px;
+                    }
+                }
+                .content{
+                    margin-left: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .postinfo{
+                        display: flex;
+                        justify-content: left;
+                        margin-top:2px;
+                        margin-bottom: 1px;
+                        font-size: small;
+                        .writer{
+                            font-style: italic;
+                            color: rgb(54, 54, 189);
+                        }
+                        .date{
+                            margin-left: 20px;
+                        }
+                        .likes{
+                            margin-left: 5px;
+                            display: flex;
+                            justify-content: center;
+                            gap : 5px;
+                            .lik{
+                                font-size: small;
+                                font-weight: 3000;
+                                .like{
+                                    width: 20px;
+                                    height: 20px;
+                                    margin-left: 5px;
+                                    
+                                }
+                            }
+                        }
+                    }    
+                }
+                h1{
+                    font-size: 30px;
+                }
+                button{
+                    margin-top: 20px;
+                    width: max-content;
+                    padding: 10px;
+                    border: none;
+                    cursor: pointer;
+                    background-color: white;
+                    border: 1px solid teal;
+                    color: teal;
+                
+                    &:hover{
+                        border: 1px solid white;
+                        background-color: teal;
+                        color : black;
+                    }
+                }
+                p{  
+                    text-align: justify;
+                    line-height: 30px;
+                }
+            }  
+        }
         //Home 
         .home{
             .posts{
@@ -144,9 +244,9 @@ $lightGreen : #b9e7e7;
                     flex-direction: row-reverse;
                 }
                 &:hover{
-                    opacity: 80%;
                     p,h1{
-                       font-weight: bolder;
+                        opacity: 80%;
+                        font-weight: bolder;
                     }
                 }
                 .img{
